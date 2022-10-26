@@ -58,7 +58,7 @@ describe('Dynamic array', () => {
     expect(dynamicArr.data[0]).to.deep.equal(1);
 
     dynamicArr.unshift(2);
-    
+
 
     expect(dynamicArr.length).to.equal(2);
     expect(dynamicArr.capacity).to.equal(8);
@@ -75,4 +75,3 @@ describe('Dynamic array', () => {
   });
 
 });
-
