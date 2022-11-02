@@ -19,6 +19,12 @@ function insertionSort(arr) {
   */
 
   // Your code here
+  let copy = [...arr];
+  const sorted = [];
+  while(copy.length) {
+    
+  }
+
 }
 
 // In-place Insertion Sort

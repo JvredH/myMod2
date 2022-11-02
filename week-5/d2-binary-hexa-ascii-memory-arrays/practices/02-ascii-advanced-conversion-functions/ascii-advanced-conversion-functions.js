@@ -9,41 +9,47 @@ Consult documentation on how to utilize the following methods:
 
 /* Base 2 to base 16 */
 function binaryToHexadecimal(blob) {
-  // const decimal = parseInt(blob.substring(2), 2);
-  // const hexStr = decimal.toString(16)
-  // return '0x' + hexStr
-
-  const hex = parseInt(blob.substring(2), 2).toString(16);
-  return `0x${hex}`;
+  let bin = blob.slice(2); // takes all chars after '0b'
+  let dec = parseInt(bin, 2); // turns the string into a integer
+  let hex = dec.toString(16); // turns integer into a hex string
+  return '0x' + hex;
 }
 
 /* Base 16 to base 2 */
 function hexadecimalToBinary(blob) {
-  return `0b${parseInt(blob).toString(2)}`;
+  let hex = blob.slice(2);
+  let dec = parseInt(hex, 16);
+  let bin = dec.toString(2);
+  return '0b' + bin;
 }
 
 /* Base 10 to ASCII */
 function decimalToAscii(blob) {
-  return String.fromCharCode(blob);
+  return String.fromCharCode(blob) // takes in a integer, returns the ascii char that represents the char
 }
 
 /* Base 2 to ASCII */
 function binaryToAscii(blob) {
+  bin = blob.slice(2);
+  dec = parseInt(bin, 2);
+  return String.fromCharCode(dec);
 
-  return String.fromCharCode(blob);
 }
 
 /* Base 16 to ASCII */
 function hexadecimalToAscii(blob) {
-  return String.fromCharCode(blob)
+  let hex = blob.slice(2);
+  let dec = parseInt(hex, 16);
+  return String.fromCharCode(dec);
 }
 
 /* ASCII to base 10 */
 function asciiToDecimal(blob) {
-  const result = [];
-  for (let i in blob) {
-    result.push(blob.charCodeAt(i));
+  const newArr = [];
+  for (let i = 0; i < blob.length; i++) {
+    newArr.push(blob.charCodeAt(i))
   }
+  return newArr;
 }
 
 // console.log('Binary to hexadecimal:')
