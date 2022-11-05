@@ -8,7 +8,24 @@ const adjList = {
 }
 
 function aShortestPath(start, end) {
-  // Your code here
+  let queue = [start];
+  let visited = new Set([start]);
+
+  while (queue.length) {
+    let currPath = queue.shift();
+    let currNode = currentPath[current.Path-1]
+    if (currentNode === end) {
+      return currentPath;
+    }
+
+    adjList[currentNode].forEach(el => {
+      if(!visited.has(el)){
+        visited.add(el);
+        queue.push([...currentPath, el])
+      }
+    })
+  }
+  return false;
 }
 
 console.log("First Test:");

@@ -108,29 +108,50 @@ class BinarySearchTree {
   }
 
     // Breadth First Traversal - Iterative
-  breadthFirstTraversal() {
-    let currentNode = this.root;
+    breadthFirstTraversal() {     // FIRST IN, FIRST OUT; QUEUE
+      // your code here
+      if (!this.root) return;
+      const queue = [ this.root ];
 
-    while (currentNode) {
-      console.log(currentNode)
-
-      if (currentNode.left !== null) {
-        currentNode = currentNode.left;
-        return this;
-        // console.log(currentNode.left);
-      } else if (currentNode.right !== null) {
-        currentNode = currentNode.right;
-        return this;
-        // console.log(currentNode.right);
+      while (queue.length > 0) {
+        let firstInQueue = queue.shift();
+        console.log(firstInQueue.val);
+        if (firstInQueue.left !== null){
+          queue.push(firstInQueue.left);
+        }
+        if (firstInQueue.right !== null){
+          queue.push(firstInQueue.right);
+        }
       }
-
     }
-  }
 
-  // Depth First Traversal - Iterative
-  depthFirstTraversal() {
-    // your code here
-}
+  //        4
+  //      /   \
+  //     2     6
+  //   / \    /  \
+  //  1   3  5    7
+  // 4, 6, 7, 5, 2, 3, 1
+    // Depth First Traversal - Iterative
+    depthFirstTraversal() {         // ADD TO END, REMOVE FROM END , STACK
+      // your code here
+      if (!this.root) return;
+      const stack = [ this.root ];
+
+      while (stack.length > 0) {
+        let firstInStack = stack.pop();
+        console.log(firstInStack.val);
+        if (firstInStack.left !== null){
+          stack.push(firstInStack.left);
+        }
+        if (firstInStack.right !== null){
+          stack.push(firstInStack.right);
+        }
+      }
+    }
 }
 
 module.exports = { BinarySearchTree, TreeNode };
+
+
+
+

@@ -8,8 +8,20 @@ const adjList = {
 }
 
 function breadthFirstSearch(start, end) {
-  // Your code here
+  let visited = new Set(start);
+  let queue = [start];
+
+  while (queue.length) {
+    let curr = queue.shift();
+
+    if (curr === end) return true;
+
+    visited[curr].forEach(el => {
+
+    })
+  }
 }
+
 
 console.log("First Test:");
 console.log(breadthFirstSearch(1, 3)); // -> true

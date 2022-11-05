@@ -8,8 +8,50 @@ const adjList = {
 }
 
 function printBreadthFirst(start) {
-    // Paste your previous code here and refactor it
+    const queue = [start];
+    const visited = new Set(queue);
+    const res = [];
+
+    while (queue.length) {
+        const curr = queue.shift();
+
+        res.push(curr)
+
+        adjList[curr].forEach(neighbor => {
+            if (!visited.has(neighbor)) {
+                queue.push(neighbor);
+                visited.add(neighbor);
+
+            }
+        })
+    }
+    console.log(res);
+    return res;
 }
+
+
+
+// function printDepthFirst(start) {
+//     const visited = new Set();
+//     visited.add(start);
+//     const stack = [start];
+//     // console.log(stack)
+//     let dequeue;
+
+//     while (stack.length) {
+//     dequeue = stack.pop();
+//       console.log(dequeue)
+//     let arr = adjList[dequeue];
+//       for (let i = 0; i < arr.length; i++) {
+//           if (!visited.has(arr[i])) {
+//           visited.add(arr[i])
+//           stack.push(arr[i])
+//           }
+//       }
+//     }
+
+//   }
+
 
 console.log("First Test:")
 printBreadthFirst(3); // Prints 1 through 6 in Breadth-first order, starting with 3
